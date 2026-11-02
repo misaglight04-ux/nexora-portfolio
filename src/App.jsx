@@ -26,9 +26,9 @@ const projects = [
     videoUrl: '/videos/nexora-signal-demo.mp4'
   },
   {
-    number: '03', category: 'CUSTOM SOFTWARE', title: 'Less busywork. More control.',
-    description: 'An operations dashboard concept for collecting requests, tracking progress and bringing repetitive business tasks into one workspace.',
-    tags: ['React', 'Dashboard UI', 'Workflow'], type: 'dashboard', status: 'CONCEPT DEMO'
+    number: '03', category: 'CUSTOM SOFTWARE', title: 'NEXORA Automation Dashboard',
+    description: 'An interactive business automation dashboard demo with workflow controls, sample activity and task-management tools. Uses demonstration data and is not connected to external business systems.',
+    tags: ['React', 'Dashboard UI', 'Interactive demo'], type: 'dashboard', status: 'LIVE DEMO', demoUrl: 'https://nexora-automation-dashboard.netlify.app/'
   }
 ];
 
