@@ -8,15 +8,16 @@ import {
 
 // PERSONALIZE THESE VALUES BEFORE PUBLISHING.
 const BRAND = 'NEXORA';
-const CONTACT_EMAIL = 'misa.tosca@gmail.com';
-const GITHUB_URL = 'https://github.com/misaglight04-ux';
+const CONTACT_EMAIL = 'YOUR_EMAIL@example.com';
+const GITHUB_URL = 'https://github.com/';
 const LINKEDIN_URL = 'https://www.linkedin.com/';
 
 const projects = [
   {
-    number: '01', category: 'WEB DEVELOPMENT', title: 'Local business, reimagined.',
-    description: 'A conversion-focused website concept for a home-service business. Clear services, strong calls to action and a frictionless quote request flow.',
-    tags: ['React', 'Responsive UI', 'Lead capture'], type: 'website', status: 'CONCEPT DEMO'
+    number: '01', category: 'WEB DEVELOPMENT', title: 'BrightNest Cleaning Co.',
+    description: 'A live, responsive website demo for a home-cleaning business, featuring service highlights, clear calls to action and a quote-request flow.',
+    tags: ['React', 'Responsive UI', 'Live website'], type: 'website', status: 'LIVE DEMO',
+    demoUrl: 'https://brightnest-clean-demo.netlify.app/'
   },
   {
     number: '02', category: 'PYTHON AUTOMATION', title: 'Signals that move faster.',
@@ -51,9 +52,9 @@ function SectionLabel({ children, number }) {
 function BrowserMockup() {
   return (
     <div className="browser-mockup">
-      <div className="browser-top"><div className="browser-dots"><b/><b/><b/></div><div className="browser-address">northstarhome.co</div><div className="browser-lock">⌁</div></div>
+      <div className="browser-top"><div className="browser-dots"><b/><b/><b/></div><div className="browser-address">brightnest-clean-demo.netlify.app</div><div className="browser-lock">⌁</div></div>
       <div className="browser-page">
-        <div className="mock-nav"><div className="mock-brand"><span className="mock-brand-icon">N</span>NORTHSTAR</div><div className="mock-nav-links"><i/><i/><i/></div><div className="mock-nav-cta">GET A QUOTE <ArrowUpRight size={10}/></div></div>
+        <div className="mock-nav"><div className="mock-brand"><span className="mock-brand-icon">B</span>BRIGHTNEST</div><div className="mock-nav-links"><i/><i/><i/></div><div className="mock-nav-cta">GET A QUOTE <ArrowUpRight size={10}/></div></div>
         <div className="mock-hero"><div className="mock-copy"><div className="mock-eyebrow"><span/> YOUR HOME, IN GOOD HANDS</div><div className="mock-headline">A cleaner<br/>space. A<br/><em>clearer mind.</em></div><div className="mock-lines"><i/><i/><i/></div><div className="mock-button">BOOK A CLEANING <ArrowUpRight size={10}/></div></div><div className="mock-photo"><div className="mock-sun"/><div className="mock-plant plant-a"/><div className="mock-plant plant-b"/><div className="mock-sofa"/><div className="mock-table"/><div className="mock-rug"/><div className="mock-photo-caption">A FRESH START, EVERY TIME.</div></div></div>
         <div className="mock-trust"><span>● TRUSTED LOCAL TEAM</span><span>● SIMPLE BOOKING</span><span>● MADE FOR YOUR SCHEDULE</span></div>
       </div>
@@ -160,7 +161,7 @@ export default function App() {
         <section className="work section-wrap section-space" id="work">
           <motion.div className="section-heading" variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true, amount: .3 }}><SectionLabel number="02">SELECTED WORK</SectionLabel><div className="heading-row"><h2>Ideas made<br/><span className="muted-heading">tangible.</span></h2><p>A look at the kind of problems I like to solve. These initial showcase pieces are clearly marked demos and personal concepts — not client case studies.</p></div></motion.div>
           <div className="projects-list">{projects.map((project, i) => <motion.article className={`project-row project-${project.type}`} key={project.number} variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true, amount: .15 }}>
-            <div className="project-info"><div className="project-kicker"><span>{project.number}</span><i/>{project.category}</div><h3>{project.title}</h3><p>{project.description}</p><div className="project-tags">{project.tags.map(tag => <span key={tag}>{tag}</span>)}</div><div className="project-status"><span className="status-dot"/>{project.status}</div></div>
+            <div className="project-info"><div className="project-kicker"><span>{project.number}</span><i/>{project.category}</div><h3>{project.title}</h3><p>{project.description}</p><div className="project-tags">{project.tags.map(tag => <span key={tag}>{tag}</span>)}</div><div className="project-status"><span className="status-dot"/>{project.status}</div>{project.demoUrl && <a className="project-demo-link" href={project.demoUrl} target="_blank" rel="noopener noreferrer" aria-label={`Open ${project.title} live demo in a new tab`}>VIEW LIVE DEMO <ArrowUpRight size={15}/></a>}</div>
             <div className="project-visual"><ProjectVisual type={project.type}/><div className="visual-index">NEX / 0{i + 1}</div></div>
           </motion.article>)}</div>
           <div className="work-note"><Sparkles size={15}/><span>More real builds and detailed case studies will be added as projects are completed.</span></div>
