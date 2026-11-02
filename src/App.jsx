@@ -8,7 +8,7 @@ import {
 
 // PERSONALIZE THESE VALUES BEFORE PUBLISHING.
 const BRAND = 'NEXORA';
-const CONTACT_EMAIL = 'YOUR_EMAIL@example.com';
+const CONTACT_EMAIL = 'misa.tosca@gmail.com';
 const GITHUB_URL = 'https://github.com/';
 const LINKEDIN_URL = 'https://www.linkedin.com/';
 
