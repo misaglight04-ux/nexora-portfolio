@@ -20,9 +20,10 @@ const projects = [
     demoUrl: 'https://brightnest-clean-demo.netlify.app/'
   },
   {
-    number: '02', category: 'PYTHON AUTOMATION', title: 'Signals that move faster.',
-    description: 'A Telegram alert-bot concept showing how custom scripts can monitor live data, apply configurable rules and deliver useful notifications.',
-    tags: ['Python', 'Telegram API', 'Automation'], type: 'bot', status: 'PERSONAL PROJECT'
+    number: '02', category: 'PYTHON AUTOMATION', title: 'NEXORA Signal Demo',
+    description: 'A Telegram bot demo that monitors Solana token prices through DexScreener and sends configurable percentage-change alerts. Informational notifications only — no wallet connection or automated trading.',
+    tags: ['Python', 'Telegram API', 'DexScreener', 'SQLite'], type: 'bot', status: 'VIDEO PREVIEW',
+    videoUrl: '/videos/nexora-signal-demo.mp4'
   },
   {
     number: '03', category: 'CUSTOM SOFTWARE', title: 'Less busywork. More control.',
@@ -162,7 +163,19 @@ export default function App() {
           <motion.div className="section-heading" variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true, amount: .3 }}><SectionLabel number="02">SELECTED WORK</SectionLabel><div className="heading-row"><h2>Ideas made<br/><span className="muted-heading">tangible.</span></h2><p>A look at the kind of problems I like to solve. These initial showcase pieces are clearly marked demos and personal concepts — not client case studies.</p></div></motion.div>
           <div className="projects-list">{projects.map((project, i) => <motion.article className={`project-row project-${project.type}`} key={project.number} variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true, amount: .15 }}>
             <div className="project-info"><div className="project-kicker"><span>{project.number}</span><i/>{project.category}</div><h3>{project.title}</h3><p>{project.description}</p><div className="project-tags">{project.tags.map(tag => <span key={tag}>{tag}</span>)}</div><div className="project-status"><span className="status-dot"/>{project.status}</div>{project.demoUrl && <a className="project-demo-link" href={project.demoUrl} target="_blank" rel="noopener noreferrer" aria-label={`Open ${project.title} live demo in a new tab`}>VIEW LIVE DEMO <ArrowUpRight size={15}/></a>}</div>
-            <div className="project-visual"><ProjectVisual type={project.type}/><div className="visual-index">NEX / 0{i + 1}</div></div>
+            <div className={`project-visual ${project.videoUrl ? 'project-visual-video' : ''}`}>
+              {project.videoUrl ? (
+                <div className="project-video-wrap">
+                  <div className="project-video-label"><span><i/> PRODUCT WALKTHROUGH</span><span>25 SEC · PREVIEW</span></div>
+                  <video className="project-demo-video" controls playsInline preload="metadata" poster="/videos/nexora-signal-demo-poster.jpg" aria-label="NEXORA Signal Demo product walkthrough">
+                    <source src={project.videoUrl} type="video/mp4" />
+                    Your browser does not support embedded video.
+                  </video>
+                  <div className="project-video-disclaimer">ILLUSTRATIVE PREVIEW · LIVE MONITORING REQUIRES THE BOT TO BE RUNNING</div>
+                </div>
+              ) : <ProjectVisual type={project.type}/>}
+              <div className="visual-index">NEX / 0{i + 1}</div>
+            </div>
           </motion.article>)}</div>
           <div className="work-note"><Sparkles size={15}/><span>More real builds and detailed case studies will be added as projects are completed.</span></div>
         </section>
